@@ -42,7 +42,7 @@
                     <!-- <span class="deals-sortby-text col col-lg-3 offset-lg-5">Sort by Best Sellers <i class="fas fa-angle-down"></i></span> -->
                 </div>
                 <div class="row mt-5">
-                    <div class="col col-lg-4" v-for="(product, index) in searchInfo.productList">
+                    <div class="col col-lg-4 col-md-6 col-6" v-for="(product, index) in searchInfo.productList">
                         <a :href="'/store/product/' + product.productId">
                             <category-product :product="product" />
                         </a>

@@ -24,8 +24,11 @@ along with this software (see the LICENSE.md file). If not, see
         <set field="productStore" from="storeInfo.productStore"/>
         <set field="wikiSpaceId" from="productStore?.wikiSpaceId"/>
 
-        <!-- TODO: evaluate all use of this, most likely eliminate all... found use showing name from UserAccount instead of PartyDetail (Person/Organization) -->
-        <set field="user" from="ec.user.userAccount"/>
+        <if condition="ec.user.userId">
+            <entity-find-one entity-name="mantle.party.PartyDetail" value-field="partyDetail">
+                <field-map field-name="partyId" from="ec.user.userId"/>
+            </entity-find-one>
+        </if>
     </always-actions>
 
     <transition name="config.js" read-only="true">

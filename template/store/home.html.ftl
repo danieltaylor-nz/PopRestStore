@@ -37,7 +37,7 @@
                                 <#else>
                                     <div class="carousel-item">
                                 </#if>
-                                    <div class="d-block col-3">
+                                    <div class="d-block col-lg-3 col-12">
                                         <a class="category-product" href="/store/product/${product.productId}">
                                             <figure class="figure">
                                                 <#if product.mediumImageInfo??>
@@ -104,7 +104,7 @@
                                 <#else>
                                     <div class="carousel-item">
                                 </#if>
-                                    <div class="d-block col-3">
+                                    <div class="d-block col-lg-3 col-12">
                                         <a class="category-product" href="/store/product/${product.productId}">
                                             <figure class="figure">
                                                 <#if product.mediumImageInfo??>

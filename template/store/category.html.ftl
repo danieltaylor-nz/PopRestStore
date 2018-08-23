@@ -38,12 +38,12 @@
                 <br>
                 <div class="col col-lg-12 col-12 deals-sellers">
                     <span class="deals-sortby-text col col-lg-4">${products.productListCount!0} results</span>
-                    <span class="deals-sortby-text col col-lg-3 offset-lg-5">Sort by Best Sellers <i class="fas fa-angle-down"></i></span>
+                    <!--<span class="deals-sortby-text col col-lg-3 offset-lg-5">Sort by Best Sellers <i class="fas fa-angle-down"></i></span>-->
                 </div>
                 <div class="row mt-5">
                     <#if products??>
                         <#list products.productList as localProd>
-                            <div class="col col-lg-4">
+                            <div class="col col-lg-4 col-md-6 col-6">
                                 <a href="/store/product/${localProd.productId}">
                                     <div class="category-product">
                                         <figure class="figure">
