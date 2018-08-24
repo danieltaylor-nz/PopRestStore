@@ -39,7 +39,13 @@ a:hover { text-decoration: none; }
 .item-color { color: #36cfdd !important; cursor: pointer; }
 
 /* Footer */
-.footer { background-color: #666666; color: #fff; padding: 30px; position: relative; width: 100%; bottom: -60px;}
+html { min-height: 100%; position: relative; }
+
+body { margin: 0; margin-bottom: 300px;}
+
+footer { background-color: black; position: absolute; bottom: 0; width: 100%; }
+
+.footer { background-color: #666666; color: #fff; padding: 30px; position: absolute; width: 100%; bottom: 0px; }
 .footer p { font-size: 0.8em; color: #04c3d5; }
 .footer-ul { list-style-type: none; font-size: 0.8em; }
 .footer-ul li { margin-top: 10px; cursor: pointer; }
