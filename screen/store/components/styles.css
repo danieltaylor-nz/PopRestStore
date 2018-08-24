@@ -41,7 +41,7 @@ a:hover { text-decoration: none; }
 /* Footer */
 html { min-height: 100%; position: relative; }
 
-body { margin: 0; margin-bottom: 300px;}
+body { margin: 0; margin-bottom: 300px; }
 
 footer { background-color: black; position: absolute; bottom: 0; width: 100%; }
 
