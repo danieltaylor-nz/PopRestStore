@@ -47,11 +47,11 @@
             <p>
                 <span class="product-title">${product.productName}</span>
                 <br>
-                <#list 1..5 as x>
+                <!--<#list 1..5 as x>
                     <span class="star-rating">
                         <i class="fas fa-star"></i>
                     </span>
-                </#list>
+                </#list> -->
             </p>
             <div class="product-description">
                 <#if product.descriptionLong??>
