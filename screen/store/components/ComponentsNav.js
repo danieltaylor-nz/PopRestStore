@@ -23,7 +23,7 @@ storeComps.Navbar = {
     logout: function() { LoginService.logout().then(function (data) {
         location.reload();
     }.bind(this)); },
-    searchProduct: function() { this.$router.push({ name: 'search', params: { searchText: this.searchText }}); }
+    searchProduct: function() { location.href ="/store/search/"+this.searchText; }
   },
   created() {
       this.storeInfo = this.$root.storeInfo;

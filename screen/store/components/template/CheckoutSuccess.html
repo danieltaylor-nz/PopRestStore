@@ -1,11 +1,11 @@
 <div>
     <checkout-navbar :option="'5'" />
-    <div class="container" v-if="orderList.orderPart">
+    <div class="container mt-5" v-if="orderList.orderPart">
         <span class="row"></span>
         <div class="row">
             <span class="order-title">Thank You For Your Purchase</span>
         </div>
-        <div class="row mt-4">
+        <div class="row mt-4 order-container">
             <a class="col col-lg-2 order-link-text" :href="'/store/d#/orders/'+orderList.orderHeader.orderId">
                 Order #{{orderList.orderHeader.orderId}}
             </a>

@@ -206,8 +206,10 @@
                     <span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <img width="100%" height="200px" class="figure-img img-fluid product-img"
-                    src="/store/content/productImage/${imgContent.productContentId}" alt="Product Image">
+                <#if imgContent.productContentId??>
+                    <img width="100%" height="200px" class="figure-img img-fluid product-img"
+                        src="/store/content/productImage/${imgContent.productContentId}" alt="Product Image">
+                </#if>
             </div>
             <div class="modal-footer">
                 <a data-dismiss="modal" class="btn btn-link">Close</a>

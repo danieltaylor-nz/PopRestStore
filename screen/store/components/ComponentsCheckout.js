@@ -109,6 +109,7 @@ storeComps.CheckOutPage = {
                 this.hideModal("modal2");
                 this.paymentMethod = {};
                 this.getCustomerPaymentMethods();
+                if(data != null) { this.paymentOption = data.paymentMethodId; }
                 this.responseMessage = "";
             }.bind(this)).catch(function (error) {
                 this.responseMessage = "An error occurred";
@@ -142,8 +143,13 @@ storeComps.CheckOutPage = {
         },
         setOptionNavbar: function(option) { this.optionNavbar = option; },
         getCustomerPaymentMethods: function() {
-            CustomerService.getPaymentMethods(this.axiosConfig)
-                .then(function (data) { this.listPaymentMethods = data.methodInfoList; }.bind(this));
+            CustomerService.getPaymentMethods(this.axiosConfig).then(function (data) { 
+                this.listPaymentMethods = data.methodInfoList;
+                if( this.paymentOption == null || typeof(this.paymentOption) == 'undefined'
+                    && this.listPaymentMethods != null  && typeof(his.listPaymentMethods) != 'undefined') {
+                    this.paymentOption = this.listPaymentMethods[0].paymentMethodId;
+                }
+            }.bind(this));
         },
         setCartPlace: function() {
             var data = { "cardSecurityCodeByPaymentId": this.paymentId };

@@ -76,7 +76,7 @@
                         </#list>
                     </#if>
                 </div>
-                <nav aria-label="Page navigation">
+                <nav aria-label="Page navigation" class="<#if products.productListCount == 0 || products.productListCount <= 5 >d-none</#if>">
                     <ul class="pagination justify-content-center">
                         <li class="page-item <#if pageIndex?number == 0>disabled</#if>">
                             <a class="page-link" href="/store/category/${categoryId}?pageIndex=${pageIndex?number - 1}">Previous</a>
