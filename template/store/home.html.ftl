@@ -17,8 +17,8 @@
         <div class="feature">
             <div class="feature-icon"><i class="fa fa-lock" aria-hidden="true"></i></div>
             <div class="feature-info">
-                <div class="title text-left">FAST SHIPPING</div>
-                <div class="subtitle">Nationwide delivery whitin 3 days</div>
+                <div class="title text-left">SECURE ORDERING</div>
+                <div class="subtitle">Safe shopping guaranteed</div>
             </div>
         </div>
     </div>

@@ -32,7 +32,7 @@
         <div id="nav_collapse1" class="container navbar-collapse collapse">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+                    <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop <i class="fas fa-angle-down icon-down"></i></a>
                     
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <#list browseRootCategoryInfo.subCategoryList as category>
@@ -50,8 +50,8 @@
                 </#if>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Customer Service
+                    <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Customer Service <i class="fas fa-angle-down icon-down"></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item item-color" href="/store/content/help">Help Center</a>
@@ -70,9 +70,9 @@
             <ul class="navbar-nav ml-auto">
                 <#if partyDetail??>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user"></i> 
-                            ${partyDetail.firstName} ${partyDetail.lastName} ${partyDetail.organizationName!} Account
+                            ${partyDetail.firstName} ${partyDetail.lastName} ${partyDetail.organizationName!} Account <i class="fas fa-angle-down icon-down"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item item-color" href="/store/d#/account">Account Settings</a>

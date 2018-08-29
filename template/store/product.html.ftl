@@ -15,6 +15,9 @@
             <a class="float-right" href="/store/d#/checkout">Go to Checkout <i class="fas fa-arrow-right"></i></a>
         </div>
     </#if>
+    <div class="row d-flex justify-content-center">
+        <img src="/store/assets/spinner.gif" style="position: fixed; z-index: 1000; width: 50px; height: 50px; margin-top: 100px;">
+    </div>
     <div class="row mt-2">
         <div class="col col-lg-1 col-sm-4 col-4">
             <div>

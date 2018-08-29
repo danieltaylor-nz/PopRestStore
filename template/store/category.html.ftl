@@ -55,14 +55,14 @@
                                                     alt="Product Image">
                                             </#if>
                                             <figcaption class="text-left title-product-text figure-caption">${localProd.productName}</figcaption>
-                                            <figcaption class="text-left figure-caption">
+                                            <!--<figcaption class="text-left figure-caption">
                                                 <#list 1..5 as x>
                                                     <span class="star-rating"><i class="fas fa-star"></i></span>
                                                 </#list>
                                                 <#if localProd.numberOfRatings??>
                                                     <span class="text-dark">${localProd.numberOfRatings}</span>
                                                 </#if>
-                                            </figcaption>
+                                            </figcaption>-->
                                             <figcaption class="text-primary text-left figure-caption">
                                                 <span class="product-price-text">$${localProd.price}</span>
                                                 <#if localProd.listPrice??>

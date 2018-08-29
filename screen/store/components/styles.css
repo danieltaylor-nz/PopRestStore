@@ -1,6 +1,12 @@
 /* $theme-colors: ( "primary": #05c3d5, "danger": #de6232, "dark": #333333 ); */
 
-#store-root { font-family: "Aveni", Helvetica, Arial, sans-serif; color: #2c3e50;
+@font-face {
+    font-family: WeblySleek;
+    src: url(/store/assets/WeblySleekUINormalRegular.ttf);
+    font-weight: bold;
+}
+
+#store-root { font-family: WeblySleek; color: #2c3e50;
     -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 /* General, Bootstrap Overrides */
@@ -21,7 +27,7 @@ a:hover { text-decoration: none; }
 .moqui-navbar .moqui-logo { width: 101px; }
 .moqui-logo1 { margin-top: -30px; margin-left: -10px; }
 .navbar-dark .navbar-nav .nav-link { color: white; }
-.navbar-title { margin-top: 10px; margin-left: -20px; display: inline-block; font-size: 2em; color: #fff; font-weight: bold; }
+.navbar-title { font-family: "Aveni", Helvetica, Arial, sans-serif; margin-top: 10px; margin-left: -20px; display: inline-block; font-size: 2em; color: #fff; font-weight: bold; }
 .navbar-pop-title { color: #999999; font-size: 1.1em; display: inline-block; }
 .navbar-pop-subtitle { display: inline-block; font-size: 0.9em; color: #999999; margin-top: -5px; }
 
@@ -56,7 +62,7 @@ footer { background-color: black; position: absolute; bottom: 0; width: 100%; }
 /* Home/Landing */
 .features { background: #05c3d5; color: #fff; padding-top: 10px; }
 .features .feature { display: flex; }
-.features .feature .feature-icon { font-size: 2.5em; margin-top: -5px; }
+.features .feature .feature-icon { font-size: 2.5em; margin-top: -5px; color: #a9ebf1; }
 .features .feature .feature-info { padding: 5px; }
 .features .feature .feature-info .subtitle { margin-top: -5px; font-size: 0.7em; }
 
@@ -147,7 +153,7 @@ footer { background-color: black; position: absolute; bottom: 0; width: 100%; }
 .hr2 { background-color: #04c3d5; height: 1px; margin-top: -10px; }
 
 .order-navbar { height: 85px; }
-.order-navbar-title { position: absolute; display: inline-block; font-size: 2.3em; color: #fff; margin-left: -10px; margin-top: 5px; font-weight: bold; }
+.order-navbar-title { font-family: "Aveni", Helvetica, Arial, sans-serif; position: absolute; display: inline-block; font-size: 2.3em; color: #fff; margin-left: -10px; margin-top: 5px; font-weight: bold; }
 .order-navbar-circle { width: 40px; height: 40px; color: #999999; border: 1px solid #999999; border-radius: 50%;
     text-align: center; display: flex; justify-content: center; align-items: center; font-size: 1.5em; }
 .order-navbar-circle-red { color: #fff; background-color: #dd6231; border: none; }
