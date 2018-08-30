@@ -54,7 +54,7 @@ storeComps.CheckOutPage = {
                 if (data.postalAddress) {
                     this.addressOption = data.postalAddress.contactMechId + ':' + data.postalAddress.telecomContactMechId;
                     this.shippingAddressSelect = data.postalAddress;
-                    this.shippingAddressSelect.contactNumber = data.telecomNumber.contactNumber;
+                    this.shippingAddressSelect.contactNumber = data.telecomNumber != 'undefined' ? data.telecomNumber.contactNumber : '';
                 }
                 if (data.orderPart.carrierPartyId) {
                     this.shippingOption = data.orderPart.carrierPartyId + ':' + data.orderPart.shipmentMethodEnumId;
@@ -198,7 +198,7 @@ storeComps.CheckOutPage = {
             this.paymentMethod.attnName = address.postalAddress.attnName;
             this.paymentMethod.city = address.postalAddress.city;
             this.paymentMethod.countryGeoId = address.postalAddress.countryGeoId;
-            this.paymentMethod.contactNumber = address.telecomNumber.contactNumber;
+            this.paymentMethod.contactNumber = address.telecomNumber != null ? address.telecomNumber.contactNumber : '';
             this.paymentMethod.postalCode = address.postalAddress.postalCode;
             this.paymentMethod.stateProvinceGeoId = address.postalAddress.stateProvinceGeoId;
             this.responseMessage = "";
@@ -211,7 +211,7 @@ storeComps.CheckOutPage = {
             this.shippingAddress.attnName = address.postalAddress.attnName;
             this.shippingAddress.city = address.postalAddress.city;
             this.shippingAddress.countryGeoId = address.postalAddress.countryGeoId;
-            this.shippingAddress.contactNumber = address.telecomNumber.contactNumber;
+            this.shippingAddress.contactNumber = address.telecomNumber != null ? address.telecomNumber.contactNumber : '';
             this.shippingAddress.postalCode = address.postalAddress.postalCode;
             this.shippingAddress.stateProvinceGeoId = address.postalAddress.stateProvinceGeoId;
             this.shippingAddress.postalContactMechId = address.postalContactMechId;
@@ -237,7 +237,7 @@ storeComps.CheckOutPage = {
         showModal: function(modalId) { $('#'+modalId).modal('show'); },
         changeShippingAddress: function(data) {
             this.shippingAddressSelect = data.postalAddress;
-            this.shippingAddressSelect.contactNumber = data.telecomNumber.contactNumber;
+            this.shippingAddressSelect.contactNumber = data.telecomNumber != 'undefined' ? data.telecomNumber.contactNumber : '';
         },
         cleanShippingAddress: function() { this.shippingAddress = {}; this.isUpdate = false; },
         cleanPaymentMethod: function() { this.paymentMethod = {}; this.isUpdate = false; }

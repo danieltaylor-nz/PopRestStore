@@ -69,6 +69,7 @@ footer { background-color: black; position: absolute; bottom: 0; width: 100%; }
 .category-product { color: #05c3d5 }
 .star-rating { color: #ffed00; }
 
+.carousel-control-prev, .carousel-control-next { width: 1px; }
 .carousel-inner .carousel-item.active,
 .carousel-inner .carousel-item-next,
 .carousel-inner .carousel-item-prev { display: flex; }
@@ -109,13 +110,15 @@ footer { background-color: black; position: absolute; bottom: 0; width: 100%; }
 /* Product */
 .container-text { text-align: left; }
 
+.product-spinner { display: none; position: fixed; z-index: 1000; width: 50px; height: 50px; margin-top: 100px; }
 .product-title { color: #666666; font-size: 2.5em; }
 .product-star { margin-top: -30px; }
 .product-img { cursor: pointer; margin-bottom: 15px !important; }
 .product-img:hover { border: 1px solid #b2b2b2; padding: 5px; }
 .product-img-select { width: 100%; height: 100%; cursor: pointer; }
+.product-small-img { width: 200px; height: 200px !important; }
 
-.product-description { color:#666666 !important; font-size: 0.9em; }
+.product-description { color:#666666 !important; font-size: 0.9em; margin-top: -50px; }
 .product-listprice-text { font-size: 0.7em; }
 .product-hr { height: 1px; background-color: #d3d3d3; }
 .product-cate-text { color: #1ec9d9; }
@@ -125,12 +128,14 @@ footer { background-color: black; position: absolute; bottom: 0; width: 100%; }
 .review-date { color: #999999; }
 .review-text { margin-top: 5px; display: inline-block; color: #666666; }
 .review-btn { margin-top: 30px; width: 180px; }
+.review-message { color: #666666; font-size: 1em; margin-top: 30px }
 
 .product-success-text { color: #666666; font-size: 1em; margin-left: 30px; margin-top: 30px; display: inline-block; margin-bottom: 30px; }
 .product-checkout-text { color: #1ec9d9 !important; font-size: 1.2em; font-weight: 300; cursor: pointer; margin-right: 15px; margin-top: 5px; }
 
 .product-price-text { color: #dd6231; font-size: 1.2em; }
 .product-last-price { color:#666666; font-size: 1.2em; }
+.product-review-text { color: #04C3D5; font-size: 0.750em; }
 
 .save-circle { background-color: #ffed00; border-radius: 50%; width: 65px; height: 65px; text-align: center; justify-content: center;
     display: flex; align-items: center; font-size: 0.8em; position: absolute; margin-left:70%; margin-top: -10px; }

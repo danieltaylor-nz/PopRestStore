@@ -16,12 +16,13 @@
         </div>
     </#if>
     <div class="row d-flex justify-content-center">
-        <img src="/store/assets/spinner.gif" style="position: fixed; z-index: 1000; width: 50px; height: 50px; margin-top: 100px;">
+        <img id="spinner" class="product-spinner" src="/store/assets/spinner.gif">
     </div>
     <div class="row mt-2">
         <div class="col col-lg-1 col-sm-4 col-4">
             <div>
                 <#assign imgDetail = false/>
+                <#assign imgExists = false/>
                 <#list product.contentList as img>
                     <#if img.productContentTypeEnumId == "PcntImageDetail">
                         <#assign imgDetail = true/>
@@ -34,7 +35,8 @@
                         </#if>
                     </#if>
                     <#if img.productContentTypeEnumId == "PcntImageLarge">
-                        <img width="200px" height="200px" onClick="changeLargeImage('${img.productContentId}');"
+                        <#assign imgExists = true/>
+                        <img onClick="changeLargeImage('${img.productContentId}');"
                             class="figure-img img-fluid product-img"
                             src="/store/content/productImage/${img.productContentId}"
                             alt="Product Image">
@@ -49,6 +51,9 @@
         <div class="col col-lg-4 col-sm-12 col-12">
             <p>
                 <span class="product-title">${product.productName}</span>
+                <br>
+                <span class="product-review-text">${reviewsList.productReviewList?size} reviews</span>
+                <hr style="margin-top: -10px;">
                 <br>
                 <!--<#list 1..5 as x>
                     <span class="star-rating">
@@ -122,7 +127,7 @@
                     </#if>
                 </div>
                 <#if inStock>
-                    <button id="cartAdd" class="btn cart-form-btn col" type="submit">
+                    <button onclick="onClickAddButton();" id="cartAdd" class="btn cart-form-btn col" type="submit" onclick="">
                         <i class="fa fa-shopping-cart"></i> Add to Cart
                     </button>
                 <#else>
@@ -165,6 +170,9 @@
     </div>
     </#list>
     <br>
+    <#if reviewsList.productReviewList?size == 0>
+       <p class="review-message">There are no reviews yet. Be the first.</p>
+    </#if>
     <button data-toggle="modal" data-target="#modal1" class="btn btn-continue review-btn">Write a Review</button>
 </div>
 <div class="modal fade" id="modal1">
@@ -243,13 +251,17 @@
         </#if> 
     }
 
-    function onChangeOption(variantId) {
-        console.log(variantId + $("#productId").val());
+    function onClickAddButton() {
+        $('#spinner').show();
     }
 
     function changeLargeImage(productContentId) { $productImageLarge.src = prodImageUrl + productContentId; }
     //Default image
-    <#if product.contentList?has_content>changeLargeImage("${product.contentList[0].productContentId}");</#if>
+    <#if product.contentList?has_content && imgExists>
+        changeLargeImage("${product.contentList[0].productContentId}");
+    <#else>
+        $productImageLarge.src = "/store/assets/default.png";
+    </#if>
     function setStarNumber(number) {
         var productRating = document.getElementById("productRating");
         productRating.value = number;

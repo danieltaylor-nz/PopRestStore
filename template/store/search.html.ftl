@@ -47,9 +47,12 @@
                                         <figure class="figure">
                                             <#if localProd.mediumImageInfo?? || localProd.smallImageInfo??>
                                                 <#assign img = localProd.smallImageInfo! localProd.mediumImageInfo>
-                                                <img width="200px" height="200px"
-                                                    class="figure-img img-fluid product-img"
+                                                <img class="figure-img img-fluid product-img product-small-img"
                                                     src="/store/content/productImage/${img.productContentId}"
+                                                    alt="Product Image">
+                                            <#else>
+                                                <img class="figure-img img-fluid product-img product-small-img"
+                                                    src="/store/assets/default.png"
                                                     alt="Product Image">
                                             </#if>
                                             <figcaption class="text-left title-product-text figure-caption">${localProd.productName}</figcaption>

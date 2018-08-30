@@ -73,7 +73,8 @@
                         {{shippingAddressSelect.address1}} {{shippingAddressSelect.address2}}
                     </span>
                     <span class="span-description">{{shippingAddressSelect.city}}</span>
-                    <span class="span-description">
+                    <span class="span-description" v-if="shippingAddressSelect.contactNumber != 'undefined'
+                        && shippingAddressSelect.contactNumber != null">
                         <i class="fa fa-phone phone-icon"></i>
                         {{shippingAddressSelect.contactNumber}}
                     </span>
@@ -92,7 +93,8 @@
                                     {{option.postalAddress.address1}} {{option.postalAddress.address2}}
                                 </span>
                                 <span class="span-description">{{option.postalAddress.city}}</span>
-                                <span class="span-description">
+                                <span class="span-description" v-if="option.telecomNumber != 'undefined' 
+                                    && option.telecomNumber != null">
                                     <i class="fa fa-phone phone-icon"></i>
                                     {{option.telecomNumber.contactNumber}}
                                 </span>
@@ -178,7 +180,8 @@
                         <span class="span-description">{{paymentMethod.toName}}</span>
                         <span class="span-description">{{paymentMethod.address1}} {{paymentMethod.address2}}</span>
                         <span class="span-description">{{paymentMethod.city}}</span>
-                        <span class="span-description">
+                        <span class="span-description" v-if="paymentMethod.contactNumber != 'undefined'
+                            && paymentMethod.contactNumber != null">
                             <i class="fa fa-phone phone-icon"></i>
                             {{paymentMethod.contactNumber}}
                         </span>
@@ -231,7 +234,8 @@
                                        {{option.postalAddress.address1}} {{option.postalAddress.address2}}
                                     </span>
                                     <span class="span-description">{{option.postalAddress.city}}</span>
-                                    <span class="span-description">
+                                    <span class="span-description" v-if="option.telecomNumber != 'undefined' && 
+                                        option.telecomNumber != null">
                                         <i class="fa fa-phone phone-icon"></i>
                                         {{option.telecomNumber.contactNumber}}
                                     </span>
