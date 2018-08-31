@@ -103,8 +103,8 @@
                                 @click="selectAddress(option),isUpdate = true" class="edit-icon">
                                 <i class="fas fa-edit"></i>
                             </span>
-                            <span @click="deleteShippingAddress(option.postalContactMechId,option.postalContactMechPurposeId)"
-                                class="delete-icon">  
+                            <span data-toggle="modal" data-target="#modal3" class="delete-icon"
+                                @click="selectAddress(option)">  
                                 <i class="fas fa-trash-alt"></i>
                             </span>
                         </div>
@@ -206,7 +206,8 @@
                                 class="edit-icon icon-margin-top">
                                 <i class="fas fa-edit"></i>
                             </span>
-                            <span @click="deletePaymentMethod(item.paymentMethodId)" class="delete-icon icon-margin-top">
+                            <span data-toggle="modal" data-target="#modal4" @click="selectPaymentMethod(item)" 
+                                class="delete-icon icon-margin-top">
                                 <i class="fas fa-trash-alt"></i>
                             </span>
                         </div>
@@ -506,6 +507,52 @@
                                 <a @click="hideModal('modal1')" class="btn btn-link text-add col col-sm-9 offset-sm-1">
                                     Or Cancel
                                 </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modal3">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row justify-content-center">
+                                <p class="offset-sm-1 offset-lg-1 offset-md-1">Are you sure to delete this record?</p>
+                                <button class="btn btn-continue col col-sm-6 col-lg-6 col-12 offset-sm-1 
+                                    offset-lg-1 offset-md-1" @click="deleteShippingAddress(
+                                    shippingAddress.postalContactMechId,shippingAddress.postalContactMechPurposeId)">
+                                    Delete
+                                </button>
+                                <a data-dismiss="modal" class="btn btn-link text-add mr-0 col col-sm-6 offset-sm-1">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal4">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row justify-content-center">
+                                <p class="offset-sm-1 offset-lg-1 offset-md-1">Are you sure to delete this record?</p>
+                                <button class="btn btn-continue col col-sm-6 col-lg-6 col-12 offset-sm-1 
+                                    offset-lg-1 offset-md-1" @click="deletePaymentMethod(paymentMethod.paymentMethodId)">
+                                    Delete
+                                </button>
+                                <a data-dismiss="modal" class="btn btn-link text-add mr-0 col col-sm-6 offset-sm-1">Cancel</a>
                             </div>
                         </div>
                     </div>

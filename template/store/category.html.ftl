@@ -9,26 +9,27 @@
                 <div class="customer-menu">
                     <ul class="deals-ul">
                         <#if (storeInfo.categoryByType.PsctSearch.productCategoryId)??>
-                            <li><a href="/store/category/${storeInfo.categoryByType.PsctSearch.productCategoryId}">
+                            <li><a <#if storeInfo.categoryByType.PsctSearch.productCategoryId == categoryId>class="category-select"</#if> href="/store/category/${storeInfo.categoryByType.PsctSearch.productCategoryId}">
                                 <i class="fas fa-th"></i> All</a></li>
                         </#if>
                         <#if (storeInfo.categoryByType.PsctPromotions.productCategoryId)??>
-                            <li><a href="/store/category/${storeInfo.categoryByType.PsctPromotions.productCategoryId}">
+                            <li><a <#if storeInfo.categoryByType.PsctPromotions.productCategoryId == categoryId>class="category-select"</#if> href="/store/category/${storeInfo.categoryByType.PsctPromotions.productCategoryId}">
                                 <i class="fa fa-fire" aria-hidden="true"></i> Deals</a></li>
                         </#if>
                         <#if (storeInfo.categoryByType.PsctNewProducts.productCategoryId)??>
-                            <li><a href="/store/category/${storeInfo.categoryByType.PsctNewProducts.productCategoryId}">
+                            <li><a <#if storeInfo.categoryByType.PsctNewProducts.productCategoryId == categoryId>class="category-select"</#if> href="/store/category/${storeInfo.categoryByType.PsctNewProducts.productCategoryId}">
                                 <i class="fas fa-tag"></i> New</a></li>
                         </#if>
                         <#if (storeInfo.categoryByType.PsctFeatured.productCategoryId)??>
-                            <li><a href="/store/category/${storeInfo.categoryByType.PsctFeatured.productCategoryId}">
+                            <li><a <#if storeInfo.categoryByType.PsctFeatured.productCategoryId == categoryId>class="category-select"</#if> href="/store/category/${storeInfo.categoryByType.PsctFeatured.productCategoryId}">
                                 <i class="fas fa-bullhorn"></i> Best Sellers</a></li>
                         </#if>
                     </ul>
+                    <hr width="180px" style="margin-left: -15px !important;">
                     <span class="deals-subtitle">Categories</span>
                     <ul class="deals-ul">
                         <#list browseRootCategoryInfo.subCategoryList as category>
-                            <li><a href="/store/category/${category.productCategoryId}">${category.categoryName}</a></li>
+                            <li><a <#if category.productCategoryId == categoryId>class="category-select"</#if> href="/store/category/${category.productCategoryId}">${category.categoryName}</a></li>
                         </#list>
                     </ul>
                 </div>

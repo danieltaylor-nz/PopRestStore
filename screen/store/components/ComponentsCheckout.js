@@ -175,11 +175,13 @@ storeComps.CheckOutPage = {
         deletePaymentMethod: function(paymentMethodId) {
             CustomerService.deletePaymentMethod(paymentMethodId,this.axiosConfig).then(function (data) {
                 this.getCustomerPaymentMethods();
+                this.hideModal('modal4');
             }.bind(this));
         },
         deleteShippingAddress: function(contactMechId,contactMechPurposeId) {
             CustomerService.deleteShippingAddress(contactMechId,contactMechPurposeId, this.axiosConfig).then(function (data) {
                 this.getCustomerShippingAddresses();
+                this.hideModal("modal3");
             }.bind(this));
         },
         updateProductQuantity: function(item) {
@@ -215,6 +217,7 @@ storeComps.CheckOutPage = {
             this.shippingAddress.postalCode = address.postalAddress.postalCode;
             this.shippingAddress.stateProvinceGeoId = address.postalAddress.stateProvinceGeoId;
             this.shippingAddress.postalContactMechId = address.postalContactMechId;
+            this.shippingAddress.postalContactMechPurposeId = address.postalContactMechPurposeId;
             this.shippingAddress.telecomContactMechId = address.telecomContactMechId;
             this.getRegions(address.postalAddress.countryGeoId);
             this.responseMessage = "";

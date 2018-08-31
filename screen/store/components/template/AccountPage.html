@@ -511,10 +511,11 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p class="text-center">Are you sure to delete this record?</p>
                         <div class="row justify-content-center">
-                            <button class="btn btn-continue col col-sm-6 offset-sm-1" @click="deleteShippingAddress(
-                                    customerAddress.postalContactMechId,customerAddress.postalContactMechPurposeId)">
+                            <p class="offset-sm-1 offset-lg-1 offset-md-1">Are you sure to delete this record?</p>
+                            <button class="btn btn-continue col col-sm-6 col-lg-6 col-12 offset-sm-1 
+                                offset-lg-1 offset-md-1" @click="deleteShippingAddress(
+                                customerAddress.postalContactMechId,customerAddress.postalContactMechPurposeId)">
                                 Delete
                             </button>
                             <a data-dismiss="modal" class="btn btn-link text-add mr-0 col col-sm-6 offset-sm-1">Cancel</a>
@@ -533,10 +534,10 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p class="text-center">Are you sure to delete this record?</p>
                         <div class="row justify-content-center">
-                            <button class="btn btn-continue col col-sm-6 offset-sm-1"  
-                                @click="deletePaymentMethod(paymentMethod.paymentMethodId)">
+                            <p class="offset-sm-1 offset-lg-1 offset-md-1">Are you sure to delete this record?</p>
+                            <button class="btn btn-continue col col-sm-6 col-lg-6 col-12 offset-sm-1 
+                                offset-lg-1 offset-md-1" @click="deletePaymentMethod(paymentMethod.paymentMethodId)">
                                 Delete
                             </button>
                             <a data-dismiss="modal" class="btn btn-link text-add mr-0 col col-sm-6 offset-sm-1">Cancel</a>
