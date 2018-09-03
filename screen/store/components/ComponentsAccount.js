@@ -143,6 +143,11 @@ storeComps.AccountPage = {
                 return;
             }
 
+            if (this.customerAddress.contactNumber.length < 4) {
+                this.responseMessage = "Type a valid contact number";
+                return;
+            }
+
             CustomerService.addShippingAddress(this.customerAddress,this.axiosConfig).then(function (data) {
                 this.customerAddress = {};
                 this.getCustomerAddress();
@@ -167,6 +172,12 @@ storeComps.AccountPage = {
                 this.responseMessage = "Verify the required fields";
                 return;
             }
+
+            if (this.paymentMethod.contactNumber.length < 4) {
+                this.responseMessage = "Type a valid contact number";
+                return;
+            }
+
             if (this.paymentMethod.postalCode.length < 5 || this.paymentMethod.postalCode.length > 7) {
                 this.responseMessage = "Type a valid postal code";
                 return;

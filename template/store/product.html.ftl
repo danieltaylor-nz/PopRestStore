@@ -7,6 +7,7 @@
 </#if>
 <div class="container mt-2">
     <a class="customer-link" href="/store">Home <i class="fas fa-angle-right"></i></a>
+    <a class="customer-link">${product.productName}</a>
 </div>
 <div class="container container-text mt-1">
     <#if addedCorrect?? && addedCorrect == 'true'>

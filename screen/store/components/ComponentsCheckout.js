@@ -32,6 +32,12 @@ storeComps.CheckOutPage = {
                 this.responseMessage = "Verify the required fields";
                 return;
             }
+
+            if (this.shippingAddress.contactNumber.length < 4) {
+                this.responseMessage = "Type a valid contact number";
+                return;
+            }
+
             if (this.shippingAddress.postalCode.length < 5 || this.shippingAddress.postalCode.length > 7) {
                 this.responseMessage = "Type a valid postal code";
                 return;
@@ -39,6 +45,11 @@ storeComps.CheckOutPage = {
 
             CustomerService.addShippingAddress(this.shippingAddress,this.axiosConfig).then(function (data) {
                 this.shippingAddress = {};
+                if (data.postalContactMechId != null && typeof(data.postalContactMechId) != 'undefined' && 
+                    data.telecomContactMechId != null && typeof(data.telecomContactMechId) != 'undefined') {
+                    this.addressOption = data.postalContactMechId + ":" + data.telecomContactMechId;
+                    this.addCartBillingShipping(-5);
+                }
                 this.getCustomerShippingAddresses();
                 this.hideModal("modal1");
             }.bind(this));
@@ -90,6 +101,12 @@ storeComps.CheckOutPage = {
                 this.responseMessage = "Verify the required fields";
                 return;
             }
+            var RegExpression = /^[a-zA-Z\s]*$/;  
+            if(!RegExpression.test(this.paymentMethod.titleOnAccount)) {
+                this.responseMessage = "You must enter a valid name";
+                return;
+            }
+
             if (this.paymentMethod.cardSecurityCode.length < 3 || this.paymentMethod.cardSecurityCode.length > 4) {
                 this.responseMessage = "Must type a valid CSC";
                 return;
@@ -145,8 +162,8 @@ storeComps.CheckOutPage = {
         getCustomerPaymentMethods: function() {
             CustomerService.getPaymentMethods(this.axiosConfig).then(function (data) { 
                 this.listPaymentMethods = data.methodInfoList;
-                if( this.paymentOption == null || typeof(this.paymentOption) == 'undefined'
-                    && this.listPaymentMethods != null  && typeof(his.listPaymentMethods) != 'undefined') {
+                if (this.paymentOption == '' || typeof(this.paymentOption) == 'undefined'
+                    && this.listPaymentMethods != null  && typeof(this.listPaymentMethods) != 'undefined') {
                     this.paymentOption = this.listPaymentMethods[0].paymentMethodId;
                 }
             }.bind(this));
@@ -247,7 +264,6 @@ storeComps.CheckOutPage = {
     },
     components: { "product-image": storeComps.ProductImageTemplate },
     mounted: function() {
-        // query: { url: 'checkout' }
         if (this.$root.apiKey == null) { 
             this.$router.push({ name: 'login'}); 
         } else {

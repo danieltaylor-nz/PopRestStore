@@ -197,7 +197,7 @@
                                 <input :id="index + 'r3'"  type="radio" :value="item.paymentMethodId" v-model="paymentOption"
                                     @click="selectPaymentMethod(item)"/>
                                 <span class="checkmark"></span>
-                                <span class="span-description">{{item.paymentMethod.description}}</span>
+                                <span class="span-description">{{item.paymentMethod.description}} {{listPaymentMethods.length}}</span>
                                 <span class="span-description">{{item.paymentMethod.titleOnAccount}}</span>
                                 <span class="span-description">Expires on {{item.creditCard.expireDate}}</span>
                             </label>
