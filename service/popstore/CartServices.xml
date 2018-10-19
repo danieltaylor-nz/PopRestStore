@@ -193,6 +193,7 @@ General Order Placement and eCommerce Usage
             <parameter name="productId" required="true"/>
             <parameter name="quantity" type="BigDecimal" default="1.0"/>
             <parameter name="currencyUomId"/>
+            <parameter name="productStoreId"/>
         </in-parameters>
         <actions>
             <!-- NOTE: use the web session for attributes such as cartOrderId for security; this won't work in a stateless mode or outside a web session -->
