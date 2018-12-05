@@ -355,6 +355,7 @@ along with this software (see the LICENSE.md file). If not, see
                 <set field="vendorPartyId" from="productStore?.organizationPartyId"/>
             </if>
             <set field="productStoreId" from="productStoreId ?: ec.web.sessionAttributes.productStoreId"/>
+            <if condition="!productStoreId"><return type="danger" message="No productStoreId found"/></if>
             <!-- TODO: if no productStoreId lookup somehow? should be set from initial call to content/config.js transition -->
 
             <if condition="!productCategoryId &amp;&amp; productStoreId">
@@ -378,8 +379,17 @@ along with this software (see the LICENSE.md file). If not, see
             <if condition="term"><set field="term" from="term.split(' ').collect({ (!it || it in ['AND', 'OR', 'NOT'] || it.contains('*')) ? it : it + '*' }).join(' ')"/></if>
             <set field="queryString" from="(term ? term + ' AND ' : '') + 'categories.productCategoryId:' + productCategoryId"/>
 
+            <!-- TODO handle dates in the future ... I tried everything here: -->
+            <!-- https://www.elastic.co/guide/en/elasticsearch/reference/6.5/query-dsl-query-string-query.html#_ranges -->
+            <!-- e.g: -->
+            <!-- categories.categoryThruDate:[1540854300000 TO *] -->
+            <!-- categories.categoryThruDate:>1540854300000 -->
+            <set field="queryString" from="queryString +' AND (NOT _exists_:categories.categoryThruDate)'"/>
+
             <service-call name="org.moqui.search.SearchServices.search#DataDocuments" out-map="searchOut"
-                    in-map="[queryString:queryString, indexName:'popc', documentType:'PopcProduct', pageIndex:pageIndex, pageSize:pageSize]"/>
+                    in-map="[queryString:queryString, indexName:'popc', documentType:'PopcProduct', pageIndex:pageIndex, pageSize:pageSize,
+                    orderByFields:['categories.productCategoryId']]"/>
+
             <set field="productList" from="searchOut.documentList"/>
             <set field="productListCount" from="searchOut.documentListCount"/>
             <set field="productListPageIndex" from="searchOut.documentListPageIndex"/>
